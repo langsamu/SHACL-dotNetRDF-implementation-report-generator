@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.202
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReportGenerator", "ReportGenerator\ReportGenerator.csproj", "{6768634D-AC21-4D36-9A97-214DB2780353}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dotNetRDF", "dotnetrdf\Libraries\dotNetRDF\dotNetRDF.csproj", "{8107A806-B8DE-4416-9675-1A1EED7BA413}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{49BDD132-0300-4C3B-9596-0C144DB18B38}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		LICENSE = LICENSE
+		README.md = README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6768634D-AC21-4D36-9A97-214DB2780353}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6768634D-AC21-4D36-9A97-214DB2780353}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6768634D-AC21-4D36-9A97-214DB2780353}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6768634D-AC21-4D36-9A97-214DB2780353}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8107A806-B8DE-4416-9675-1A1EED7BA413}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8107A806-B8DE-4416-9675-1A1EED7BA413}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8107A806-B8DE-4416-9675-1A1EED7BA413}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8107A806-B8DE-4416-9675-1A1EED7BA413}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7A4D3DAA-1748-4288-883D-663274CECC31}
+	EndGlobalSection
+EndGlobal
