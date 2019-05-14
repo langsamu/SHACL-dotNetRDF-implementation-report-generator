@@ -15,4 +15,9 @@
     </None>
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Include="..\dotnetrdf\Testing\unittest\Shacl\TestSuiteData.cs"/>
+    <Compile Include="..\dotnetrdf\Testing\unittest\Shacl\TestSuiteData.NetFull.cs"/>
+  </ItemGroup>
 </Project>
+  

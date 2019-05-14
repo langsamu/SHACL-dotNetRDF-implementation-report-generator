@@ -1,1 +1,0 @@
-../dotnetrdf/Testing/unittest/Shacl/TestSuiteData.cs

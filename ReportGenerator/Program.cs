@@ -3,7 +3,6 @@
     using System;
     using System.Linq;
     using VDS.RDF;
-    using VDS.RDF.Parsing;
     using VDS.RDF.Shacl;
     using VDS.RDF.Shacl.Validation;
 
@@ -13,24 +12,18 @@
         {
             var i = 1;
 
-            foreach (var item in TestSuiteData.TestNames.ToList())
+            foreach (var item in TestSuiteData.CoreFullTests.Concat(TestSuiteData.SparqlTests).Select(x => (string)x[0]).ToList())
             {
-                Console.Write("{0} ",i++);
-
-                if (item == "core/path/path-complex-002.ttl")
-                {
-                    Console.WriteLine("{0}=False", item);
-                    continue;
-                }
+                Console.Write("{0} ", i++);
 
                 TestSuiteData.ExtractTestData(item, out var testGraph, out var shouldFail, out var dataGraph, out var shapesGraph);
 
                 bool conforms()
                 {
-                    new ShapesGraph(shapesGraph).Validate(dataGraph, out var report);
+                    var report = new ShapesGraph(shapesGraph).Validate(dataGraph);
 
-                    var actual = ExtractReportGraph(report.Graph);
-                    var expected = ExtractReportGraph(testGraph);
+                    var actual = report.Normalised;
+                    var expected = Report.Parse(testGraph).Normalised;
 
                     RemoveUnnecessaryResultMessages(actual, expected);
 
@@ -56,21 +49,6 @@
                     Console.WriteLine("{0}={1}", item, conforms());
                 }
             }
-        }
-
-        private static IGraph ExtractReportGraph(IGraph g)
-        {
-            var q = new SparqlQueryParser().ParseFromString(@"
-PREFIX sh: <http://www.w3.org/ns/shacl#> 
-
-DESCRIBE ?s
-WHERE {
-    ?s a sh:ValidationReport .
-}
-");
-            q.Describer = new ReportDescribeAlgorithm();
-
-            return (IGraph)g.ExecuteQuery(q);
         }
 
         private static void RemoveUnnecessaryResultMessages(IGraph resultReport, IGraph testReport)
